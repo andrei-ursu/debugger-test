@@ -3,7 +3,6 @@
 ## Steps
 
 ### 1. Create a .vscode folder in the root of the project if it does not exist <br>
-
 ### 2. Create a launch.json file in the .vscode folder following this example: <br>
     
 ```Json
@@ -21,8 +20,7 @@
                 "${workspaceRoot}/build/**.js"
             ],
             "env": {
-                "ENV_CONFIG_PATH": "config/env/local/config.yaml",
-                "ENV_SECRETS_PATH": "config/env/local/secrets.json"
+                "ENV_CONFIG_PATH": "config/env/local/config.yaml"
             },
             "sourceMaps": true
         }
@@ -34,7 +32,7 @@
 * The _**program**_ property is the path to the output script of the build process _(e.g.: server.js)_
 * The _**outFiles**_ property is the path to all of the .js files from the output of the build process
 * The _**env**_ property is where environment variables can be provided, in the example they were taken from the _npm run dev_ script in package.json
-
+<br><br>
 ### 3. Add a new property in the webpack config file _(e.g.: webpack/server.js)_ <br>
 
 At the end of the module.exports object add the following property:
@@ -43,3 +41,12 @@ devtool: 'source-map'
 ```
 
 The source-maps provide a mapping between the original and the transformed source code. This allows us add breakpoints in the original(non-built) code that will get triggered.
+<br><br>
+### 4. Open the debug menu and start the debugger <br>
+
+![](img/debug_menu.png)
+<br><br>
+### 5. Set breakpoints and use the debug actions as needed
+
+
+![](img/debug_actions.png)
